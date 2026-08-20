@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barraca bulevar — Ferretería &amp; Herramientas en Tacuarembo</title>
+<meta name="description" content="Ferretería en Tacuarembó. Herramientas, materiales, pinturas y todo para tu obra o arreglo. Consultá por WhatsApp.">
+<meta name="theme-color" content="#0F7A47">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ferretería en Tacuarembó">
+<meta property="og:description" content="Herramientas, materiales, pinturas y todo para tu obra o arreglo. Consultá por WhatsApp.">
+<meta property="og:locale" content="es_UY">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1726;
+  --ink-soft:#5C6679;
+  --bg:#FFFFFF;
+  --bg-soft:#F6F8FB;
+  --line:#ECEFF4;
+  --verde:#0F7A47;          /* verde marca — universal ferreterías */
+  --verde-deep:#0B5A34;
+  --verde-soft:#E7F5EC;
+  --wa:#25D366;
+  --radio:16px;
+  --ancho:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--ancho);margin:0 auto;padding:0 28px}
+h1,h2,h3,.disp{font-family:'Manrope',sans-serif;letter-spacing:-.02em;line-height:1.08}
+a{color:inherit}
+img{max-width:100%;display:block}
+
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:'Manrope',sans-serif;font-weight:700;
+  font-size:.97rem;padding:13px 22px;border-radius:11px;border:0;cursor:pointer;text-decoration:none;
+  transition:transform .15s ease,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:2.5px solid var(--verde);outline-offset:3px}
+.btn-wa{background:var(--wa);color:#06351C;box-shadow:0 10px 26px -14px rgba(37,211,102,.9)}
+.btn-verde{background:var(--verde);color:#fff}
+.btn-verde:hover{background:var(--verde-deep)}
+
+/* ===== HEADER ===== */
+header.barra{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.barra .wrap{position:relative;display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand .sq{width:36px;height:36px;border-radius:9px;background:var(--verde);color:#fff;
+  display:grid;place-items:center;font-family:'Manrope';font-weight:800;font-size:1rem;letter-spacing:-.03em}
+.brand b{font-family:'Manrope';font-weight:800;font-size:1.2rem;letter-spacing:-.02em;color:var(--ink)}
+.links{display:flex;gap:34px;align-items:center}
+.links a{color:var(--ink-soft);text-decoration:none;font-weight:500;font-size:.96rem;transition:color .15s}
+.links a:hover{color:var(--verde)}
+.burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:860px){
+  .burger{display:flex}
+  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+    background:#fff;border-bottom:1px solid var(--line);padding:6px 0;
+    box-shadow:0 24px 44px -26px rgba(14,23,38,.3);display:none}
+  .links.open{display:flex}
+  .links a{padding:15px 28px;font-size:1.05rem;border-bottom:1px solid var(--line)}
+  .links a:last-child{border-bottom:0}
+}
+
+/* ===== trust strip ===== */
+.trust{border-bottom:1px solid var(--line);background:var(--bg-soft)}
+.trust .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 28px;
+  padding:18px 28px;color:var(--ink-soft);font-size:.91rem;font-weight:500}
+.trust .dot{width:4px;height:4px;border-radius:50%;background:#CBD3DF}
+.trust b{color:var(--verde);font-weight:700}
+
+
+/* ===== sections ===== */
+section{padding:100px 0}
+@media(max-width:680px){section{padding:64px 0}}
+.head{margin-bottom:44px;max-width:54ch}
+.head .kick{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--verde);font-weight:700;margin-bottom:14px}
+.head h2{font-size:clamp(2rem,4.2vw,2.9rem);font-weight:800;letter-spacing:-.03em}
+.head p{color:var(--ink-soft);font-size:1.1rem;margin-top:14px}
+
+/* ===== catálogo ===== */
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.f{background:var(--bg-soft);border:1px solid transparent;color:var(--ink-soft);font-family:'Manrope';
+  font-weight:600;font-size:.9rem;padding:9px 17px;border-radius:50px;cursor:pointer;transition:.15s}
+.f:hover{color:var(--verde);background:var(--verde-soft)}
+.f.on{background:var(--verde);color:#fff}
+.f:focus-visible{outline:2.5px solid var(--verde);outline-offset:2px}
+.grid-prod{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:1000px){.grid-prod{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.grid-prod{grid-template-columns:repeat(2,1fr);gap:14px}}
+.card{border:1px solid var(--line);border-radius:var(--radio);overflow:hidden;background:#fff;
+  display:flex;flex-direction:column;transition:transform .22s ease,box-shadow .22s,border-color .22s}
+.card:hover{transform:translateY(-6px);box-shadow:0 28px 56px -24px rgba(15,90,52,.22);border-color:#D0D9EC}
+.card .ph{aspect-ratio:1;background:var(--bg-soft);overflow:hidden;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.card:hover .ph img{transform:scale(1.06)}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card .cat{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--verde);font-weight:700;opacity:.7}
+.card h3{font-size:1rem;font-weight:600;color:var(--ink);font-family:'Inter';line-height:1.35;letter-spacing:0}
+.card .precio{font-family:'Manrope';font-weight:800;font-size:1.05rem;color:var(--verde-deep)}
+.card .ask{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:'Manrope';font-weight:700;font-size:.88rem;color:#fff;background:var(--verde);
+  border-radius:10px;padding:10px 14px;text-decoration:none;transition:background .18s,transform .15s,box-shadow .18s;
+  box-shadow:0 4px 14px -6px rgba(15,90,52,.4)}
+.card .ask:hover{background:var(--verde-deep);transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(15,90,52,.5)}
+.card .ask svg{width:15px;height:15px;fill:#fff}
+.card .acciones{display:flex;gap:8px;margin-top:auto}
+.card .acciones .ask{margin-top:0;flex:1}
+.pagar{background:#0B5ED7;box-shadow:0 4px 14px -6px rgba(11,94,215,.4);border:0;font-family:'Manrope';font-weight:700}
+.pagar:hover{background:#084298}
+.pagar:disabled{opacity:.6;cursor:wait;transform:none}
+.vacio{color:var(--ink-soft);padding:24px 0}
+.banner-pago{padding:14px 20px;text-align:center;font-family:'Manrope',sans-serif;font-weight:600;color:#fff}
+
+/* ===== local ===== */
+.local{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.local .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:54px;align-items:start}
+.dato{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.dato:first-child{padding-top:0}
+.dato:last-child{border-bottom:0}
+.dato .ic{flex:0 0 24px;color:var(--verde);margin-top:2px}
+.dato .ic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7}
+.dato .et{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft);font-weight:700;margin-bottom:3px}
+.dato .vl{font-size:1.06rem;font-weight:500}
+.dato .vl a{text-decoration:none;color:var(--verde);font-weight:600}
+.estado{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-family:'Manrope'}
+.estado .luz{width:9px;height:9px;border-radius:50%}
+.estado.abierto{color:#15813F}.estado.abierto .luz{background:#15813F}
+.estado.cerrado{color:#B4302A}.estado.cerrado .luz{background:#B4302A}
+.mapa{border-radius:var(--radio);overflow:hidden;border:1px solid var(--line);min-height:420px}
+.mapa iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+@media(max-width:860px){.local .wrap{grid-template-columns:1fr;gap:36px}.mapa{min-height:320px}.mapa iframe{min-height:320px}}
+
+/* ===== marcas ===== */
+.marcas-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.chip{font-family:'Manrope';font-weight:700;color:var(--verde);font-size:.95rem;
+  padding:10px 20px;letter-spacing:.01em;border:1.5px solid var(--line);border-radius:50px;
+  background:#fff;box-shadow:0 2px 8px -4px rgba(14,23,38,.1)}
+
+/* ===== cta ===== */
+.cta{background:var(--verde);color:#fff}
+.cta .wrap{padding:80px 28px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.cta h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.03em;max-width:20ch}
+.cta p{color:rgba(255,255,255,.78);margin-top:10px;font-size:1.05rem}
+
+/* ===== footer ===== */
+footer{padding:64px 0 36px;border-top:1px solid var(--line);background:var(--bg-soft)}
+footer .wrap{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:flex-start}
+footer .col h4{font-family:'Manrope';font-weight:800;font-size:1rem;margin-bottom:16px;letter-spacing:-.01em;color:var(--ink)}
+footer .col p,footer .col a{color:var(--ink-soft);font-size:.93rem;text-decoration:none;display:block;margin-bottom:8px;transition:color .15s}
+footer .col a:hover{color:var(--verde)}
+.copy{width:100%;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink-soft);
+  font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* ===== LOGO HEADER ===== */
+.brand .sq{display:none}
+.brand .logo-img{height:44px;width:auto;object-fit:contain}
+
+/* ===== ANIMACIONES ===== */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@keyframes waGlow{0%,100%{box-shadow:0 10px 26px -14px rgba(37,211,102,.9)}50%{box-shadow:0 10px 38px -8px rgba(37,211,102,1),0 0 0 5px rgba(37,211,102,.15)}}
+.btn-wa{animation:waGlow 2.6s ease-in-out infinite}
+.btn-wa:hover{animation:none;transform:translateY(-2px)}
+
+.btn-verde{position:relative;overflow:hidden}
+.btn-verde::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .45s ease}
+.btn-verde:hover::after{left:150%}
+
+.btn{position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;transform:scale(0);animation:rippleAnim .55s linear;background:rgba(255,255,255,.28);pointer-events:none}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+
+.links a{position:relative}
+.links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--verde);border-radius:2px;transition:width .25s ease}
+.links a:hover::after{width:100%}
+
+@keyframes waRing{0%{box-shadow:0 12px 30px -10px rgba(37,211,102,.75),0 0 0 0 rgba(37,211,102,.45)}70%{box-shadow:0 12px 30px -10px rgba(37,211,102,.75),0 0 0 14px rgba(37,211,102,0)}100%{box-shadow:0 12px 30px -10px rgba(37,211,102,.75),0 0 0 0 rgba(37,211,102,0)}}
+.wa-flota{animation:waRing 2.2s ease infinite}
+.wa-flota:hover{animation:none;transform:scale(1.1)}
+
+.chip{transition:color .2s,transform .2s;cursor:default}
+.chip:hover{color:var(--verde);transform:translateY(-2px)}
+
+.foot-logo{height:58px;width:auto;object-fit:contain;display:block;margin-bottom:12px}
+
+/* ===== wa flotante ===== */
+.wa-flota{position:fixed;right:22px;bottom:22px;z-index:60;background:var(--wa);color:#fff;width:58px;height:58px;
+  border-radius:50%;display:grid;place-items:center;box-shadow:0 12px 30px -10px rgba(37,211,102,.75);text-decoration:none;transition:transform .15s}
+.wa-flota:hover{transform:scale(1.08)}
+.wa-flota:focus-visible{outline:2.5px solid var(--verde);outline-offset:3px}
+.wa-flota svg{width:30px;height:30px;fill:#fff}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="wrap">
+    <a href="#catalogo" class="brand"><img class="logo-img" id="logo-header" src="images/logo.png" alt=""><b id="brand-txt"></b></a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="links" id="menu">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#local">El local</a>
+      <a href="#marcas">Marcas</a>
+    </nav>
+  </div>
+</header>
+
+<div class="trust"><div class="wrap" id="trust-wrap"></div></div>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="head">
+      <div class="kick">Catálogo</div>
+      <h2>Mirá lo que tenemos</h2>
+      <p>Tocá un producto y consultá disponibilidad y precio por WhatsApp. Si no lo ves, preguntanos igual, y te lo conseguimos!</p>
+    </div>
+    <div class="filtros" id="filtros"></div>
+    <div class="grid-prod" id="grid-prod"></div>
+  </div>
+</section>
+
+<section id="local" class="local">
+  <div class="wrap">
+    <div>
+      <div class="head" style="margin-bottom:28px">
+        <div class="kick">Visitanos</div>
+        <h2>Pasá por el local</h2>
+      </div>
+      <div id="datos-local"></div>
+    </div>
+    <div class="mapa" id="mapa-wrap"></div>
+  </div>
+</section>
+
+<section id="marcas">
+  <div class="wrap">
+    <div class="head"><div class="kick">Trabajamos con</div><h2>Marcas de confianza</h2></div>
+    <div class="marcas-row" id="grid-marcas"></div>
+  </div>
+</section>
+
+<section class="cta" style="padding:0">
+  <div class="wrap">
+    <div>
+      <h2>¿Necesitás algo puntual? Preguntanos sin vueltas.</h2>
+      <p>Te respondemos en horario de local. Presupuesto sin compromiso.</p>
+    </div>
+    <a class="btn btn-wa" id="cta-wa" href="#" style="font-size:1.05rem;padding:15px 28px">Escribinos ahora</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="col"><img class="foot-logo" id="logo-footer" src="images/logo.png" alt=""><h4 id="foot-nombre"></h4><p id="foot-dir"></p><p id="foot-tel"></p></div>
+    <div class="col"><h4>Horarios</h4><div id="foot-horarios"></div></div>
+    <div class="col"><h4>Seguinos</h4><div id="foot-redes"></div></div>
+    <div class="copy"><span id="foot-copy"></span><span id="foot-tag"></span></div>
+  </div>
+</footer>
+
+<a class="wa-flota" id="wa-flota" href="#" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.027zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<script>
+/* foto del frente — para cambiarla, reemplazá el archivo images/foto-frente.jpg */
+const FOTO_FRENTE = "images/foto-frente.jpg";
+
+/* ╔══════════════════════════════════════════════════════════════╗
+   ║   👇 ÚNICO BLOQUE A EDITAR POR CADA FERRETERÍA                 ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+const CONFIG = {
+  nombre: "Barraca Bulevar",
+  tagline: "Tu ferretería en Tacuarembo ",
+  sub: "Herramientas, materiales, pinturas y todo para tu obra o arreglo. La atención de siempre, en Tacuarembo.",
+  ratingGoogle: 4.3,
+  cantOpiniones: 115,
+  marcaDestacada: "Inca",             // marca insignia a resaltar en la franja de confianza (dejar "" para ocultarla)
+
+  whatsapp: "59896400795",            // ⚠ CELULAR REAL (598 + 9 dígitos). El fijo 2619 8925 NO sirve para WhatsApp.
+  mensajeWhatsapp: "Hola Barraca Bulevar, te quería consultar por un producto.",
+  telefono: "4632 8292",
+
+  direccion: "18 de Julio 575, 45000 Tacuarembó, Departamento de Tacuarembó",
+  foto: FOTO_FRENTE,
+
+  // Horarios confirmados en Google (última actualización del negocio hace 11 semanas).
+  horarios: {
+    1: [["08:30","18:00"]], 2: [["08:30","18:00"]], 3: [["08:30","18:00"]],
+    4: [["08:30","18:00"]], 5: [["08:30","18:00"]],
+    6: [["08:30","13:00"]], 0: []
+  },
+
+  marcas: ["Inca","Tramontina","Bosch","Sika","Suvinil","Black+Decker","Stanley"],
+  redes: { instagram:"", facebook:"" },
+
+  /* El catálogo (nombre, categoría, imagen, precio) vive en data/productos.json.
+     Es la MISMA fuente que usa el backend para validar los pagos, así el precio que
+     se cobra siempre es el real y no uno que alguien pueda cambiar desde el navegador. */
+  productos: []
+};
+/* ╚═══════════════ FIN DE LO QUE SE EDITA ═══════════════╝ */
+
+const dias=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+const $=s=>document.querySelector(s);
+
+const waBase=`https://wa.me/${CONFIG.whatsapp}`;
+const waLink=`${waBase}?text=${encodeURIComponent(CONFIG.mensajeWhatsapp)}`;
+const fmtPrecio=p=>`$${p.toLocaleString('es-UY')}`;
+const waProd=p=>`${waBase}?text=${encodeURIComponent("Hola, me interesa: "+p.nombre+(p.precio?` (${fmtPrecio(p.precio)})`:"")+". ¿Tienen disponible?")}`;
+const mapaQuery=encodeURIComponent(CONFIG.direccion);
+const mapaLink=`https://www.google.com/maps/search/?api=1&query=${mapaQuery}`;
+
+function estadoApertura(){
+  const a=new Date(),d=a.getDay(),min=a.getHours()*60+a.getMinutes();
+  const am=t=>{const[h,m]=t.split(":").map(Number);return h*60+m};
+  for(const[ab,ci] of (CONFIG.horarios[d]||[]))
+    if(min>=am(ab)&&min<am(ci)) return{abierto:true,hasta:ci};
+  return{abierto:false};
+}
+
+/* menú móvil */
+const burger=$('#burger'),menu=$('#menu');
+burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o)});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
+
+/* catálogo */
+let filtroActivo="Todos";
+function cats(){return["Todos",...[...new Set(CONFIG.productos.map(p=>p.cat))]]}
+function pintarFiltros(){
+  $('#filtros').innerHTML=cats().map(c=>`<button class="f${c===filtroActivo?' on':''}" data-c="${c}">${c}</button>`).join('');
+  document.querySelectorAll('.f').forEach(b=>b.onclick=()=>{filtroActivo=b.dataset.c;pintarFiltros();pintarProductos()});
+}
+function pintarProductos(){
+  const lista=filtroActivo==="Todos"?CONFIG.productos:CONFIG.productos.filter(p=>p.cat===filtroActivo);
+  if(!lista.length){$('#grid-prod').innerHTML='<p class="vacio">No hay productos en esta categoría todavía.</p>';return}
+  $('#grid-prod').innerHTML=lista.map(p=>`
+    <article class="card">
+      <div class="ph"><img loading="lazy" src="${p.img}" alt="${p.nombre}"></div>
+      <div class="body">
+        <div class="cat">${p.cat}</div>
+        <h3>${p.nombre}</h3>
+        ${p.precio?`<div class="precio">${fmtPrecio(p.precio)}</div>`:''}
+        <div class="acciones">
+          <a class="ask" href="${waProd(p)}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.027z"/></svg>
+            Consultar
+          </a>
+          ${p.precio?`<button type="button" class="ask pagar" data-id="${p.id}">Pagar</button>`:''}
+        </div>
+      </div>
+    </article>`).join('');
+}
+
+/* pagos con Mercado Pago */
+async function pagarProducto(id){
+  const btn=document.querySelector(`.pagar[data-id="${CSS.escape(id)}"]`);
+  const original=btn?btn.textContent:'';
+  if(btn){btn.disabled=true;btn.textContent='Un momento…'}
+  try{
+    const r=await fetch('/api/crear-preferencia',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({id,cantidad:1})
+    });
+    const data=await r.json();
+    if(!r.ok||!data.init_point) throw new Error(data.error||'Error al iniciar el pago');
+    window.location.href=data.init_point;
+  }catch(err){
+    console.error(err);
+    alert('No se pudo iniciar el pago. Probá de nuevo o escribinos por WhatsApp.');
+    if(btn){btn.disabled=false;btn.textContent=original}
+  }
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.pagar');
+  if(b) pagarProducto(b.dataset.id);
+});
+
+function manejarRetornoPago(){
+  const params=new URLSearchParams(location.search);
+  const estado=params.get('pago');
+  const mensajes={
+    exito:{texto:'¡Pago aprobado! Gracias por tu compra. Te contactamos por WhatsApp para coordinar la entrega.',color:'var(--verde)'},
+    error:{texto:'El pago no se pudo procesar. Podés intentar de nuevo o consultarnos por WhatsApp.',color:'#B4302A'},
+    pendiente:{texto:'Tu pago está pendiente de aprobación. Te avisamos apenas se confirme.',color:'#B98900'}
+  };
+  const m=mensajes[estado];
+  if(!m) return;
+  const div=document.createElement('div');
+  div.className='banner-pago';
+  div.style.background=m.color;
+  div.textContent=m.texto;
+  document.body.insertBefore(div,document.body.firstChild);
+  history.replaceState({},'',location.pathname);
+}
+
+function render(){
+  document.title=`${CONFIG.nombre} — ${CONFIG.tagline}`;
+  $('meta[name=description]').content=CONFIG.sub;
+  $('meta[property="og:title"]').content=`${CONFIG.nombre} — ${CONFIG.tagline}`;
+  $('meta[property="og:description"]').content=CONFIG.sub;
+  $('#brand-txt').textContent=CONFIG.nombre;
+  ['#logo-header','#logo-footer'].forEach(s=>$(s).alt=CONFIG.nombre);
+
+  ['#cta-wa','#wa-flota'].forEach(s=>$(s).href=waLink);
+
+  // trust strip
+  const e0=estadoApertura();
+  $('#trust-wrap').innerHTML=`
+    <span><b>${CONFIG.ratingGoogle}★</b> en Google</span><span class="dot"></span>
+    <span><b>+${CONFIG.cantOpiniones}</b> opiniones</span><span class="dot"></span>
+    ${CONFIG.marcaDestacada?`<span>Distribuidor <b>${CONFIG.marcaDestacada}</b> oficial</span><span class="dot"></span>`:''}
+    <span>${e0.abierto?'Abierto ahora':'Consultas por WhatsApp'}</span>`;
+
+  pintarFiltros();pintarProductos();
+
+  const e=estadoApertura();
+  const estadoHTML=e.abierto
+    ?`<span class="estado abierto"><span class="luz"></span>Abierto · cierra ${e.hasta}</span>`
+    :`<span class="estado cerrado"><span class="luz"></span>Cerrado ahora</span>`;
+  $('#datos-local').innerHTML=`
+    <div class="dato"><span class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-12a8 8 0 10-16 0c0 7.5 8 12 8 12z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <div><div class="et">Dirección</div><div class="vl"><a href="${mapaLink}" target="_blank" rel="noopener">${CONFIG.direccion}</a></div></div></div>
+    <div class="dato"><span class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      <div><div class="et">Estado</div><div class="vl">${estadoHTML}</div></div></div>
+    <div class="dato"><span class="ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></span>
+      <div><div class="et">Teléfono</div><div class="vl"><a href="tel:${CONFIG.telefono.replace(/\s/g,'')}">${CONFIG.telefono}</a></div></div></div>`;
+
+  $('#mapa-wrap').innerHTML=`<iframe loading="lazy" title="Ubicación" src="https://maps.google.com/maps?q=${mapaQuery}&z=16&output=embed"></iframe>`;
+  $('#grid-marcas').innerHTML=CONFIG.marcas.map(m=>`<span class="chip">${m}</span>`).join('');
+
+  $('#foot-nombre').textContent=CONFIG.nombre;
+  $('#foot-dir').textContent=CONFIG.direccion;
+  $('#foot-tel').textContent="Tel: "+CONFIG.telefono;
+  $('#foot-horarios').innerHTML=[1,2,3,4,5,6,0].map(d=>{
+    const t=CONFIG.horarios[d]||[];const tx=t.length?t.map(x=>x.join("–")).join(" / "):"Cerrado";
+    return `<p><strong style="color:var(--ink)">${dias[d].slice(0,3)}</strong> · ${tx}</p>`}).join('');
+  let red='';if(CONFIG.redes.instagram)red+=`<a href="${CONFIG.redes.instagram}" target="_blank" rel="noopener">Instagram</a>`;
+  if(CONFIG.redes.facebook)red+=`<a href="${CONFIG.redes.facebook}" target="_blank" rel="noopener">Facebook</a>`;
+  red+=`<a href="${waLink}" target="_blank" rel="noopener">WhatsApp</a>`;$('#foot-redes').innerHTML=red;
+  $('#foot-copy').textContent=`© ${new Date().getFullYear()} ${CONFIG.nombre}. Todos los derechos reservados.`;
+  $('#foot-tag').textContent=`Ferretería en Tacuarembó`;
+}
+(async()=>{
+  try{
+    const r=await fetch('data/productos.json');
+    CONFIG.productos=await r.json();
+  }catch(err){
+    console.error('No se pudo cargar el catálogo',err);
+    CONFIG.productos=[];
+  }
+  render();
+  manejarRetornoPago();
+})();
+
+/* scroll reveal */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('section,footer,.trust').forEach(el=>el.classList.add('reveal'));
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* ripple en botones */
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.btn,.f,.ask');
+  if(!btn)return;
+  const r=document.createElement('span');
+  const rect=btn.getBoundingClientRect();
+  const size=Math.max(rect.width,rect.height);
+  r.className='ripple';
+  r.style.cssText=`width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+  btn.appendChild(r);
+  r.addEventListener('animationend',()=>r.remove());
+});
+</script>
+</body>
+</html>

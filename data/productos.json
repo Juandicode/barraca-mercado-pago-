@@ -1,0 +1,18 @@
+[
+  { "id": "taladro-percutor", "nombre": "Taladro percutor 1/2\"", "cat": "Herramientas", "img": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500&q=80", "precio": 3490 },
+  { "id": "destornilladores", "nombre": "Juego de destornilladores", "cat": "Herramientas", "img": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=500&q=80", "precio": 890 },
+  { "id": "amoladora", "nombre": "Amoladora angular", "cat": "Herramientas", "img": "https://images.unsplash.com/photo-1426927308491-6380b6a9936f?w=500&q=80", "precio": 2190 },
+  { "id": "cinta-metrica", "nombre": "Cinta métrica 5m", "cat": "Herramientas", "img": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=500&q=80", "precio": 250 },
+  { "id": "cable-2-5mm", "nombre": "Rollo de cable 2.5mm", "cat": "Electricidad", "img": "https://images.unsplash.com/photo-1758965364875-e090e5423d2d?w=500&q=80", "precio": 1590 },
+  { "id": "llave-luz", "nombre": "Llave de luz simple", "cat": "Electricidad", "img": "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&q=80", "precio": 190 },
+  { "id": "lampara-led", "nombre": "Lámpara LED 9W", "cat": "Electricidad", "img": "https://images.unsplash.com/photo-1563982277495-2b66392d3625?w=500&q=80", "precio": 220 },
+  { "id": "cano-pvc-40", "nombre": "Caño PVC 40mm", "cat": "Sanitaria", "img": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&q=80", "precio": 310 },
+  { "id": "canilla-pared", "nombre": "Canilla de pared", "cat": "Sanitaria", "img": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500&q=80", "precio": 450 },
+  { "id": "latex-inca-4l", "nombre": "Látex Inca interior 4L", "cat": "Pinturas", "img": "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=500&q=80", "precio": 1290 },
+  { "id": "rodillo-bandeja", "nombre": "Rodillo + bandeja", "cat": "Pinturas", "img": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=500&q=80", "precio": 380 },
+  { "id": "tornillos-surtidos", "nombre": "Caja de tornillos surtidos", "cat": "Fijaciones", "img": "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=500&q=80", "precio": 150 },
+  { "id": "tarugos-tornillo", "nombre": "Tarugos con tornillo", "cat": "Fijaciones", "img": "https://images.unsplash.com/photo-1641937725629-2adda0f55251?w=500&q=80", "precio": 120 },
+  { "id": "adhesivo-contacto", "nombre": "Adhesivo de contacto", "cat": "Adhesivos", "img": "https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=500&q=80", "precio": 290 },
+  { "id": "candado-seguridad", "nombre": "Candado de seguridad", "cat": "Cerrajería", "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80", "precio": 590 },
+  { "id": "rastrillo-jardin", "nombre": "Rastrillo de jardín", "cat": "Jardín", "img": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&q=80", "precio": 690 }
+]
