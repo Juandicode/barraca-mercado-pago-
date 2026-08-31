@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "Sitio de Barraca Bulevar con pagos online via Mercado Pago",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "mercadopago": "^2.0.9"
   }
 }
