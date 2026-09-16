@@ -68,7 +68,7 @@ Este proyecto migra una app originalmente pensada para Vercel Serverless Functio
 
 En cada push a `main`:
 
-1. **Checkout** del código
+1. **Checkout** del código, con `persist-credentials: false` (ver sección de seguridad más abajo)
 2. **Autenticación** contra AWS usando credenciales guardadas como GitHub Secrets (nunca expuestas en el código)
 3. **Login** a Amazon ECR
 4. **Build** de la imagen Docker, con **dos tags**: uno con el SHA del commit (trazabilidad — "esta imagen es exactamente este commit") y otro `latest` (conveniencia)
@@ -87,6 +87,23 @@ Todo esto corre en ~15-20 segundos, sin que un humano toque Docker, ECR o Lambda
 
 **Dos tags por imagen (SHA + latest).** El tag `latest` es cómodo, pero no dice nada sobre qué versión del código corre en producción en un momento dado. El tag con el SHA del commit permite responder con precisión "¿qué código está corriendo ahora mismo?" y hacer rollback a una versión específica si hace falta.
 
+**`persist-credentials: false` en el checkout.** Ver la sección de seguridad del pipeline más abajo — mitiga un vector de filtración de credenciales conocido en GitHub Actions.
+
+## Seguridad del pipeline: mitigación de ArtiPACKED
+
+Después de tener el pipeline funcionando, se investigó una vulnerabilidad conocida en GitHub Actions llamada **ArtiPACKED** (descubierta por Palo Alto Networks Unit 42 en 2024): la acción `actions/checkout`, en su configuración por default, persiste el `GITHUB_TOKEN` (una credencial temporal generada por GitHub en cada corrida) dentro de `.git/config`. Si algún paso posterior del workflow sube un **artifact** (resultados de tests, logs, el workspace completo) que incluya esa carpeta sin querer, el token queda expuesto dentro del artifact — y en un repo público, cualquiera con acceso de lectura puede descargarlo y quedarse con él.
+
+Este pipeline **no sube artifacts** en ningún paso, así que el vector de ataque específico no aplicaba en la práctica. Aun así, se aplicó la mitigación como buena práctica preventiva:
+
+```yaml
+- name: Checkout del código
+  uses: actions/checkout@v4
+  with:
+    persist-credentials: false
+```
+
+Este flag evita que el token se escriba en `.git/config` desde el inicio, cerrando el vector de raíz sin ningún costo ni downside funcional.
+
 ## Troubleshooting real (documentado tal cual ocurrió)
 
 ### 1. `auto_return invalid: back_url.success must be defined`
@@ -100,6 +117,9 @@ Durante la configuración de GitHub Secrets, una Access Key de AWS quedó pegada
 
 ### 4. `PA_UNAUTHORIZED_RESULT_FROM_POLICIES` — token con longitud incorrecta
 El checkout seguía fallando incluso con `SITE_URL` pública. Los logs de CloudWatch mostraron un 403 de Mercado Pago indicando que el Access Token no estaba llegando correctamente. Comparando la longitud del valor guardado en la variable de entorno de Lambda (92 caracteres) contra la longitud real del token (76 caracteres), se confirmó que se había colado un salto de línea al pegar el valor manualmente. **Solución:** extraer el valor directamente del archivo `.env` con `grep` + `tr -d`, evitando el copy-paste manual y su margen de error.
+
+### 5. Mitigación preventiva de ArtiPACKED en `actions/checkout`
+Ver la sección de seguridad más arriba. A diferencia de los otros cuatro puntos, este no fue un error que ocurrió durante el desarrollo, sino una vulnerabilidad conocida de la industria identificada y corregida proactivamente después de tener el pipeline funcionando — buena práctica de revisar configuraciones default de terceros, no solo el propio código.
 
 ## Costo
 
