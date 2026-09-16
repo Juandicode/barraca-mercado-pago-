@@ -44,26 +44,30 @@ module.exports = async (req, res) => {
 
   try {
     const preference = new Preference(client);
-    const result = await preference.create({
-      body: {
-        items: [
-          {
-            id: producto.id,
-            title: producto.nombre,
-            quantity: qty,
-            unit_price: producto.precio,
-            currency_id: 'UYU',
-          },
-        ],
-        back_urls: {
-          success: `${siteUrl}/?pago=exito`,
-          failure: `${siteUrl}/?pago=error`,
-          pending: `${siteUrl}/?pago=pendiente`,
+    // Mercado Pago exige https para back_urls.success cuando se usa auto_return
+    // (en local con http://localhost la API responde invalid_auto_return).
+    const esHttps = siteUrl.startsWith('https://');
+    const body = {
+      items: [
+        {
+          id: producto.id,
+          title: producto.nombre,
+          quantity: qty,
+          unit_price: producto.precio,
+          currency_id: 'UYU',
         },
-        auto_return: 'approved',
-        statement_descriptor: 'BARRACA BULEVAR',
+      ],
+      back_urls: {
+        success: `${siteUrl}/?pago=exito`,
+        failure: `${siteUrl}/?pago=error`,
+        pending: `${siteUrl}/?pago=pendiente`,
       },
-    });
+      statement_descriptor: 'BARRACA BULEVAR',
+    };
+    if (esHttps) {
+      body.auto_return = 'approved';
+    }
+    const result = await preference.create({ body });
 
     res.status(200).json({ init_point: result.init_point });
   } catch (err) {
